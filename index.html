@@ -20,7 +20,6 @@
                 }, false);
             });
 
-
             $scope.test1 = function () {
                 return '<p><b>HyperText Markup Language</b> (<b>HTML</b>) is the standard <a href="/wiki/Markup_language" title="Markup language">markup language</a> for creating <a href="/wiki/Web_page" title="Web page">web pages</a> and <a href="/wiki/Web_application" title="Web application">web applications</a>. With <a href="/wiki/Cascading_Style_Sheets" title="Cascading Style Sheets">Cascading Style Sheets</a> (CSS), and <a href="/wiki/JavaScript" title="JavaScript">JavaScript</a>, it forms a triad of cornerstone technologies for the <a href="/wiki/World_Wide_Web" title="World Wide Web">World Wide Web</a>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> <a href="/wiki/Web_browser" title="Web browser">Web browsers</a> receive HTML documents from a <a href="/wiki/Webserver" class="mw-redirect" title="Webserver">webserver</a> or from local storage and render them into multimedia web pages. HTML describes the structure of a web page <a href="/wiki/Semantic" class="mw-redirect" title="Semantic">semantically</a> and originally included cues for the appearance of the document.</p>'
             };
@@ -42,11 +41,11 @@
 <ons-template id="page1.html">
     <ons-page ng-controller="page1">
 
-        <h3>test1</h3>
-        <div id="test1" contenteditable="true" ng-bind-html="test()"></div>
+        <h3>touchstart stopPropagation</h3>
+        <div id="test1" contenteditable="true" ng-bind-html="test1()"></div>
 
 
-        <h3>english</h3>
+        <h3>touchstart not touchstart</h3>
         <div id="test2" contenteditable="true" ng-bind-html="test2()" style="background-color:#77c2bb"></div>
 
     </ons-page>
