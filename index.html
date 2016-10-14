@@ -15,8 +15,7 @@
 
             angular.element(document).ready(function () {
                 document.getElementById('mcQuote').addEventListener("touchstart", function (e) {
-                    alert('aaa');
-                    e.stopPropagation()
+                    return e.stopPropagation();
                 }, false);
             });
 
