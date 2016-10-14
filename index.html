@@ -15,7 +15,11 @@
         app.controller('page1', function ($scope) {
 
             angular.element(document).ready(function () {
-                document.getElementById('myId').addEventListener("touchstart", function (e) {
+                document.getElementById('jp').addEventListener("touchstart", function (e) {
+                    return e.stopPropagation();
+                }, false);
+
+                document.getElementById('en').addEventListener("touchstart", function (e) {
                     return e.stopPropagation();
                 }, false);
             });
@@ -43,14 +47,14 @@
         <ons-row>
             <ons-col>
                 <div>jp</div>
-                <div id="myId" contenteditable="true" ng-bind-html="test()"></div>
+                <div id="jp" contenteditable="true" ng-bind-html="test()"></div>
             </ons-col>
         </ons-row>
 
         <ons-row>
             <ons-col>
                 <div>english</div>
-                <div contenteditable="true" ng-bind-html="test2()" style="background-color:#77c2bb"></div>
+                <div id="en" contenteditable="true" ng-bind-html="test2()" style="background-color:#77c2bb"></div>
             </ons-col>
         </ons-row>
     </ons-page>
