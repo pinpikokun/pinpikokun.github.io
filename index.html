@@ -5,6 +5,7 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
     <script src="onsenui.min.js"></script>
     <script src="angular-onsenui.min.js"></script>
+    <link rel="stylesheet" href="my.css"/>
     <link rel="stylesheet" href="onsenui.css"/>
     <link rel="stylesheet" href="onsen-css-components.css"/>
 
@@ -14,7 +15,7 @@
         app.controller('page1', function ($scope, $sce) {
 
             angular.element(document).ready(function () {
-                document.getElementById('mcQuote').addEventListener("touchstart", function (e) {
+                document.getElementById('myId').addEventListener("touchstart", function (e) {
                     return e.stopPropagation();
                 }, false);
             });
@@ -39,7 +40,7 @@
     <ons-page ng-controller="page1">
         <ons-row>
             <ons-col>
-                <div id="mcQuote" contenteditable="true" ng-bind-html="test()"></div>
+                <div id="myId" class="my-class" contenteditable="true" ng-bind-html="test()"></div>
             </ons-col>
         </ons-row>
     </ons-page>
