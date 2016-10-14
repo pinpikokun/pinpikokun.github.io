@@ -1,12 +1,6 @@
-.my-class * {
-    user-select: text;
-}
-
 [contenteditable] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
     user-select: text;
-}
-
-[contenteditable=true]:empty:before {
-    content: attr(placeholder);
-    color: #bababa;
 }
