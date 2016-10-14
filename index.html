@@ -13,11 +13,11 @@
         var app = ons.bootstrap('app', ['ngSanitize']);
         app.controller('page1', function ($scope, $sce) {
 
-//            angular.element(document).ready(function () {
-//                document.getElementById('mcQuote').addEventListener("touchstart", function (e) {
-//                    e.stopPropagation()
-//                }, false);
-//            });
+            angular.element(document).ready(function () {
+                document.getElementById('mcQuote').addEventListener("touchstart", function (e) {
+                    e.stopPropagation()
+                }, false);
+            });
 
 
             $scope.test = function () {
