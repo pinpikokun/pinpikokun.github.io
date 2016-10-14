@@ -11,6 +11,10 @@
 
     <script>
         var app = ons.bootstrap('app', ['ngSanitize']);
+        app.run(function () {
+            ons.forcePlatformStyling('ios');
+        });
+
         app.controller('page1', function ($scope, $sce) {
 
             angular.element(document).ready(function () {
@@ -18,7 +22,6 @@
                     e.stopPropagation()
                 }, false);
             });
-
 
             $scope.test = function () {
                 var str = '<p class="TweetTextSize TweetTextSize--16px js-tweet-text tweet-text" lang="ja" data-aria-label-part="0">Onsen UI 2.0.1 をリリースしました。CHANGELOG に示した修正のほかに、一部のブラウザでの誤動作の防止（Custom Elements v1 polyfill の常時使用化）などを適用しています。<a href="https://t.co/FwnjWdnswr" rel="nofollow" dir="ltr" data-expanded-url="https://github.com/OnsenUI/OnsenUI/blob/master/CHANGELOG.md" class="twitter-timeline-link u-hidden" target="_blank" title="https://github.com/OnsenUI/OnsenUI/blob/master/CHANGELOG.md"><span class="tco-ellipsis"></span><span class="invisible">https://</span><span class="js-display-url">github.com/OnsenUI/OnsenU</span><span class="invisible">I/blob/master/CHANGELOG.md</span><span class="tco-ellipsis"><span class="invisible">&nbsp;</span>…</span></a></p>';
@@ -31,6 +34,11 @@
 
 <body>
 <ons-navigator title="Navigator" var="myNavigator">
+    <ons-button modifier="light" onclick="myNavigator.pushPage('page1.html', { animation : 'slide' } )">
+        Push Page
+    </ons-button>
+</ons-navigator>
+<ons-template id="page1.html">
     <ons-page ng-controller="page1">
         <ons-row>
             <ons-col>
@@ -38,6 +46,6 @@
             </ons-col>
         </ons-row>
     </ons-page>
-</ons-navigator>
+</ons-template>
 </body>
 </html>
