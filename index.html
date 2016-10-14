@@ -1,0 +1,43 @@
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
+    <script src="onsenui.min.js"></script>
+    <script src="angular-onsenui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.0.0-alpha.15/css/onsenui.min.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.0.0-alpha.15/css/onsen-css-components.min.css"/>
+
+    <script>
+        var app = ons.bootstrap('app', ['ngSanitize']);
+        app.controller('page1', function ($scope, $sce) {
+
+            angular.element(document).ready(function () {
+                document.getElementById('mcQuote').addEventListener("touchstart", function (e) {
+                    e.stopPropagation()
+                }, false);
+            });
+
+
+            $scope.test = function () {
+                var str = '<p class="TweetTextSize TweetTextSize--16px js-tweet-text tweet-text" lang="ja" data-aria-label-part="0">Onsen UI 2.0.1 をリリースしました。CHANGELOG に示した修正のほかに、一部のブラウザでの誤動作の防止（Custom Elements v1 polyfill の常時使用化）などを適用しています。<a href="https://t.co/FwnjWdnswr" rel="nofollow" dir="ltr" data-expanded-url="https://github.com/OnsenUI/OnsenUI/blob/master/CHANGELOG.md" class="twitter-timeline-link u-hidden" target="_blank" title="https://github.com/OnsenUI/OnsenUI/blob/master/CHANGELOG.md"><span class="tco-ellipsis"></span><span class="invisible">https://</span><span class="js-display-url">github.com/OnsenUI/OnsenU</span><span class="invisible">I/blob/master/CHANGELOG.md</span><span class="tco-ellipsis"><span class="invisible">&nbsp;</span>…</span></a></p>';
+                var str2 = '<p class="TweetTextSize TweetTextSize--26px js-tweet-text tweet-text" lang="ja" data-aria-label-part="0">英語版サイトに続き、Onsen UI 2.0 の日本語版サイトをリニューアルしました！ガイド・リファレンスは翻訳中です。翻訳が完了次第このアカウントでお伝えしていきます。 <a href="https://t.co/zKQHYKb7GV" rel="nofollow" dir="ltr" data-expanded-url="https://ja.onsen.io/" class="twitter-timeline-link" target="_blank" title="https://ja.onsen.io/"><span class="tco-ellipsis"></span><span class="invisible">https://</span><span class="js-display-url">ja.onsen.io</span><span class="invisible">/</span><span class="tco-ellipsis"><span class="invisible">&nbsp;</span></span></a><a href="https://t.co/j39Yw4LHN9" class="twitter-timeline-link u-hidden" data-pre-embedded="true" dir="ltr">pic.twitter.com/j39Yw4LHN9</a></p>';
+                return $sce.trustAsHtml(str + str2);
+            }
+        });
+    </script>
+</head>
+
+<body>
+<ons-navigator title="Navigator" var="myNavigator">
+    <ons-page ng-controller="page1">
+        <ons-row>
+            <ons-col>
+                <div id="mcQuote" contenteditable="true" ng-bind-html="test()"></div>
+            </ons-col>
+        </ons-row>
+    </ons-page>
+</ons-navigator>
+</body>
+</html>
