@@ -10,14 +10,12 @@
 
     <script>
         var app = ons.bootstrap('app', ['ngSanitize']);
-        app.run(function () {
-            ons.forcePlatformStyling('ios');
-        });
 
         app.controller('page1', function ($scope, $sce) {
 
             angular.element(document).ready(function () {
                 document.getElementById('mcQuote').addEventListener("touchstart", function (e) {
+                    alert('aaa');
                     e.stopPropagation()
                 }, false);
             });
