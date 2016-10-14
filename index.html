@@ -41,11 +41,13 @@
 <ons-template id="page1.html">
     <ons-page ng-controller="page1">
 
-        <h3>touchstart stopPropagation</h3>
+        <h2>If contenteditable item can not be edited in the iphone</h2>
+
+        <h3>stopPropagation</h3>
         <div id="test1" contenteditable="true" ng-bind-html="test1()"></div>
 
 
-        <h3>touchstart not touchstart</h3>
+        <h3>dont stopPropagation</h3>
         <div id="test2" contenteditable="true" ng-bind-html="test2()" style="background-color:#77c2bb"></div>
 
     </ons-page>
