@@ -15,22 +15,19 @@
         app.controller('page1', function ($scope) {
 
             angular.element(document).ready(function () {
-//                document.getElementById('jp').addEventListener("touchstart", function (e) {
-//                    return e.stopPropagation();
-//                }, false);
-//
-//                document.getElementById('en').addEventListener("touchstart", function (e) {
-//                    return e.stopPropagation();
-//                }, false);
+                document.getElementById('test1').addEventListener("touchstart", function (e) {
+                    return e.stopPropagation();
+                }, false);
             });
 
-//            $scope.test = function () {
-//                return '<p><span lang="en" xml:lang="en"><b>HyperText Markup Language</b></span>（ハイパーテキスト マークアップ ランゲージ）、略記・略称<b>HTML</b>（エイチティーエムエル）とは、<a href="/wiki/World_Wide_Web" title="World Wide Web">ウェブ</a>上の<a href="/wiki/%E3%82%A6%E3%82%A7%E3%83%96%E3%83%9A%E3%83%BC%E3%82%B8" title="ウェブページ">文書</a>を記述するための<a href="/wiki/%E3%83%9E%E3%83%BC%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E8%A8%80%E8%AA%9E" title="マークアップ言語">マークアップ言語</a>である。文章の中に記述することでさまざまな機能を記述設定することができる。</p>';
-//            }
+
+            $scope.test1 = function () {
+                return '<p><b>HyperText Markup Language</b> (<b>HTML</b>) is the standard <a href="/wiki/Markup_language" title="Markup language">markup language</a> for creating <a href="/wiki/Web_page" title="Web page">web pages</a> and <a href="/wiki/Web_application" title="Web application">web applications</a>. With <a href="/wiki/Cascading_Style_Sheets" title="Cascading Style Sheets">Cascading Style Sheets</a> (CSS), and <a href="/wiki/JavaScript" title="JavaScript">JavaScript</a>, it forms a triad of cornerstone technologies for the <a href="/wiki/World_Wide_Web" title="World Wide Web">World Wide Web</a>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> <a href="/wiki/Web_browser" title="Web browser">Web browsers</a> receive HTML documents from a <a href="/wiki/Webserver" class="mw-redirect" title="Webserver">webserver</a> or from local storage and render them into multimedia web pages. HTML describes the structure of a web page <a href="/wiki/Semantic" class="mw-redirect" title="Semantic">semantically</a> and originally included cues for the appearance of the document.</p>'
+            };
 
             $scope.test2 = function () {
                 return '<p><b>HyperText Markup Language</b> (<b>HTML</b>) is the standard <a href="/wiki/Markup_language" title="Markup language">markup language</a> for creating <a href="/wiki/Web_page" title="Web page">web pages</a> and <a href="/wiki/Web_application" title="Web application">web applications</a>. With <a href="/wiki/Cascading_Style_Sheets" title="Cascading Style Sheets">Cascading Style Sheets</a> (CSS), and <a href="/wiki/JavaScript" title="JavaScript">JavaScript</a>, it forms a triad of cornerstone technologies for the <a href="/wiki/World_Wide_Web" title="World Wide Web">World Wide Web</a>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> <a href="/wiki/Web_browser" title="Web browser">Web browsers</a> receive HTML documents from a <a href="/wiki/Webserver" class="mw-redirect" title="Webserver">webserver</a> or from local storage and render them into multimedia web pages. HTML describes the structure of a web page <a href="/wiki/Semantic" class="mw-redirect" title="Semantic">semantically</a> and originally included cues for the appearance of the document.</p>'
-            }
+            };
         });
     </script>
 </head>
@@ -44,17 +41,17 @@
 
 <ons-template id="page1.html">
     <ons-page ng-controller="page1">
-        <!--<ons-row>-->
-        <!--<ons-col>-->
-        <!--<div>jp</div>-->
-        <!--&lt;!&ndash;<div id="jp" contenteditable="true" ng-bind-html="test()"></div>&ndash;&gt;-->
-        <!--</ons-col>-->
-        <!--</ons-row>-->
+        <ons-row>
+            <ons-col>
+                <div>jp</div>
+                <div id="test1" contenteditable="true" ng-bind-html="test()"></div>
+            </ons-col>
+        </ons-row>
 
         <ons-row>
             <ons-col>
                 <div>english</div>
-                <div contenteditable="true" ng-bind-html="test2()"></div>
+                <div id="test2" contenteditable="true" ng-bind-html="test2()" style="background-color:#77c2bb"></div>
             </ons-col>
         </ons-row>
     </ons-page>
