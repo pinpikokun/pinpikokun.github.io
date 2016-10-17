@@ -8,7 +8,35 @@
   <link rel="stylesheet" href="onsenui.css"/>
   <link rel="stylesheet" href="onsen-css-components.css"/>
   <link rel="stylesheet" href="my.css"/>
+  <style type="text/css">
+    ons-pull-hook {
+      color: #888888;
+    }
 
+    ons-pull-hook .arrow {
+      opacity: 0.2;
+      transition: all 0.3s ease-in-out;
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+
+    ons-pull-hook[state="preaction"] .arrow {
+      opacity: 1;
+      transform: rotate3d(0, 0, 1, 180deg);
+    }
+
+    ons-pull-hook[state="action"] .arrow {
+      display: none;
+    }
+
+    ons-pull-hook .loader {
+      display: none;
+      transition: all 0.3s ease-in-out 0.2s;
+    }
+
+    ons-pull-hook[state="action"] .loader {
+      display: inline-block;
+    }
+  </style>
   <script>
     var app = ons.bootstrap('app', ['ngSanitize']);
 
@@ -20,13 +48,11 @@
       $scope.onLoadPullHook = function (done) {
         $timeout(function () {
           $scope.list.push({
-            title: '1',
+            title: $scope.list.length + 1,
             body: 'aiueo'
           })
         }).then(done);
       }
-
-
     });
   </script>
 </head>
@@ -52,7 +78,7 @@
 
     <ons-list>
       <ons-list-item ng-show="list.length === 0">
-        <div>
+        <div style="width: 100%; text-align: center">
           <ons-icon icon="ion-android-sunny" size="50px" style="color: #0b97c4;"></ons-icon>
           <p>0 item</p>
         </div>
