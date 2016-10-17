@@ -9,12 +9,7 @@
   <link rel="stylesheet" href="onsen-css-components.css"/>
   <link rel="stylesheet" href="my.css"/>
   <style type="text/css">
-    ons-pull-hook {
-      color: #888888;
-    }
-
     ons-pull-hook .arrow {
-      opacity: 0.2;
       transition: all 0.3s ease-in-out;
       transform: rotate3d(0, 0, 0, 0deg);
     }
@@ -42,7 +37,7 @@
 
     app.controller('page1', function ($scope, $timeout) {
 
-      $scope.name = 'toolbar-name';
+      $scope.name = 'toolbar';
       $scope.list = [];
 
       $scope.onLoadPullHook = function (done) {
