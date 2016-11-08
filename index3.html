@@ -14,7 +14,10 @@
     app.controller('page1', function ($scope) {
     });
     
-    app.controller('page1', function ($scope) {
+    app.controller('page1', function ($scope, $location) {
+      $scope.urlScheme = function(){
+        $location.path('line://');
+      }
     });
   </script>
 </head>
@@ -43,8 +46,13 @@
       <div class="center">page2</div>
     </ons-toolbar>
     <ons-button modifier="light" onclick="myNavigator.popPage();">
-      pop Page
+      Pop Page
     </ons-button>
+    
+    <ons-button modifier="light" onclick="myNavigator.urlScheme();">
+      Url Scheme
+    </ons-button>
+    
   </ons-page>
 </ons-template>
 </body>
