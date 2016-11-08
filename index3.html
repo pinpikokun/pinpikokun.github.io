@@ -27,19 +27,25 @@
 </ons-navigator>
 
 <ons-template id="page1.html">
-<ons-page id="A" on-device-backbutton="myNavigator.popPage();">
-  <ons-button modifier="light" onclick="myNavigator.pushPage('page2.html', { animation : 'slide' } )">
-    Push Page
-  </ons-button>
-</ons-page>
+  <ons-page on-device-backbutton="myNavigator.popPage();">
+    <ons-toolbar>
+      <div class="center">page1</div>
+    </ons-toolbar>
+    <ons-button modifier="light" onclick="myNavigator.pushPage('page2.html', { animation : 'slide' } )">
+      Push Page
+    </ons-button>
+  </ons-page>
 </ons-template>
 
 <ons-template id="page2.html">
-<ons-page id="A" on-device-backbutton="myNavigator.popPage();">
-  <ons-button modifier="light" onclick="myNavigator.popPage();">
-    pop Page
-  </ons-button>
-</ons-page>
+  <ons-page on-device-backbutton="myNavigator.popPage();">
+    <ons-toolbar>
+      <div class="center">page2</div>
+    </ons-toolbar>
+    <ons-button modifier="light" onclick="myNavigator.popPage();">
+      pop Page
+    </ons-button>
+  </ons-page>
 </ons-template>
 </body>
 </html>
