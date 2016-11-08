@@ -1,0 +1,45 @@
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
+  <script src="onsenui.min.js"></script>
+  <script src="angular-onsenui.min.js"></script>
+  <link rel="stylesheet" href="onsenui.css"/>
+  <link rel="stylesheet" href="onsen-css-components.css"/>
+
+  <script>
+    var app = ons.bootstrap('app', ['ngSanitize']);
+
+    app.controller('page1', function ($scope) {
+    });
+    
+    app.controller('page1', function ($scope) {
+    });
+  </script>
+</head>
+
+<body>
+<ons-navigator title="Navigator" var="myNavigator">
+  <ons-button modifier="light" onclick="myNavigator.pushPage('page1.html', { animation : 'slide' } )">
+    Push Page
+  </ons-button>
+</ons-navigator>
+
+<ons-template id="page1.html">
+<ons-page id="A" on-device-backbutton="myNavigator.popPage();">
+  <ons-button modifier="light" onclick="myNavigator.pushPage('page2.html', { animation : 'slide' } )">
+    Push Page
+  </ons-button>
+</ons-page>
+</ons-template>
+
+<ons-template id="page2.html">
+<ons-page id="A" on-device-backbutton="myNavigator.popPage();">
+  <ons-button modifier="light" onclick="myNavigator.popPage();">
+    pop Page
+  </ons-button>
+</ons-page>
+</ons-template>
+</body>
+</html>
