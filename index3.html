@@ -30,7 +30,7 @@
 </ons-navigator>
 
 <ons-template id="page1.html">
-  <ons-page on-device-backbutton="myNavigator.popPage();">
+  <ons-page ng-controller="page1" on-device-backbutton="myNavigator.popPage();">
     <ons-toolbar>
       <div class="center">page1</div>
     </ons-toolbar>
@@ -41,7 +41,7 @@
 </ons-template>
 
 <ons-template id="page2.html">
-  <ons-page on-device-backbutton="myNavigator.popPage();">
+  <ons-page ng-controller="page2" on-device-backbutton="myNavigator.popPage();">
     <ons-toolbar>
       <div class="center">page2</div>
     </ons-toolbar>
