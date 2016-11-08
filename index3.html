@@ -15,6 +15,7 @@
     });
     
     app.controller('page2', function ($scope, $location) {
+      $scope.title = "page2";
       $scope.urlScheme = function(){
         $location.path('line://');
       }
@@ -43,7 +44,7 @@
 <ons-template id="page2.html">
   <ons-page ng-controller="page2" on-device-backbutton="myNavigator.popPage();">
     <ons-toolbar>
-      <div class="center">page2</div>
+      <div class="center" ng-bind="title"></div>
     </ons-toolbar>
     <ons-button modifier="light" onclick="myNavigator.popPage();">
       Pop Page
