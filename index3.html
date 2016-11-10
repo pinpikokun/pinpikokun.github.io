@@ -1,8 +1,7 @@
 <html>
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
     <script src="onsenui.min.js"></script>
     <script src="angular-onsenui.min.js"></script>
     <link rel="stylesheet" href="onsenui.css"/>
@@ -32,24 +31,46 @@
 </head>
 
 <body>
-<ons-navigator title="Navigator" var="myNavigator">
-    <ons-button modifier="light" onclick="myNavigator.pushPage('page1.html', { animation : 'slide' } )">
+<ons-navigator var="navi" page="page.html"></ons-navigator>
+
+<ons-template id="page.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button>Back</ons-back-button>
+      </div>
+      <div class="center">Navigation</div>
+    </ons-toolbar>
+    <section style="padding: 10px">
+      <ons-button ng-click="navi.pushPage('page2.html')">
         Push Page
-    </ons-button>
-</ons-navigator>
+      </ons-button>
+      <ons-gesture-detector>
+        ↓push前（検知：OK｜動作：OK）<br>
+        <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
+      </ons-gesture-detector>
+    </section>
+  </ons-page>
+</ons-template>
 
-<ons-template id="page1.html">
-    <ons-page ng-controller="page1">
-        <div style="padding: 10px;">
-            <h2>contenteditable can not be edited on iOS</h2>
-
-            <h3 style="color: #dc5236">It can not be edited and no changes</h3>
-            <div id="test1" contenteditable="true" ng-bind-html="test2()" style="border: 1px solid;"></div>
-
-            <h3 style="color:#5198db">The touchstart stopPropagation Then editable</h3>
-            <div id="test2" contenteditable="true" ng-bind-html="test1()" style="border: 1px solid;"></div>
-        </div>
-    </ons-page>
+<ons-template id="page2.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button>Back</ons-back-button>
+      </div>
+      <div class="center">Navigation</div>
+    </ons-toolbar>
+    <section style="padding: 10px">
+      <ons-button ng-click="navi.popPage()">
+        Pop Page<br>
+      </ons-button>
+      <ons-gesture-detector>
+        ↓push後（検知：OK｜動作：NG）<br>
+        <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
+      </ons-gesture-detector>
+    </section>
+  </ons-page>
 </ons-template>
 </body>
 </html>
