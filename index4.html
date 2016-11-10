@@ -11,7 +11,7 @@
     <script>
         var app = ons.bootstrap('app', []);
 
-            $(document).on('init', function() {
+            document.addEventListener('init', function(event) {
                 var target = $("img.photo-zoom_jq");
                 var prevScale = 1;
                 var scale = 1;
