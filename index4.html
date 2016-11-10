@@ -18,6 +18,7 @@
                 var prevScale = 1;
                 var scale = 1;
                 $(document).on('release', 'img.photo-zoom_jq', function(event) {
+                    console.log(target);
                     console.log('release is detected.');
                     scale = Math.max(0.5, Math.min(prevScale * event.originalEvent.gesture.scale, 3));
                     console.log('scale:' + scale);
