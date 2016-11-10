@@ -11,6 +11,8 @@
     <script>
         var app = ons.bootstrap('app', []);
         document.addEventListener('init', function(event) {
+            if(event.target.id !== 'page2') return;
+            
             var target = $("#page2 img.photo-zoom_jq");
             console.log(target);
             var prevScale = 1;
