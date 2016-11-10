@@ -27,10 +27,7 @@
 </head>
 
 <body>
-<ons-navigator var="navi" page="page.html">
-  </ons-navigator>
-
-  <ons-template id="page.html">
+  <ons-navigator var="navi">
     <ons-page>
       <ons-toolbar>
         <div class="left">
@@ -44,13 +41,14 @@
           Push Page
         </ons-button>
         <ons-gesture-detector>
-        ↓push前（検知：OK｜動作：OK）<br>
-        <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
+          ↓push前（検知：OK｜動作：OK）<br>
+          <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
         </ons-gesture-detector>
 
       </section>
     </ons-page>
-  </ons-template>
+  </ons-navigator>
+
 
   <ons-template id="page2.html">
     <ons-page>
@@ -66,8 +64,8 @@
           Pop Page<br>
         </ons-button>
         <ons-gesture-detector>
-        ↓push後（検知：OK｜動作：NG）<br>
-        <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
+          ↓push後（検知：OK｜動作：NG）<br>
+          <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
         </ons-gesture-detector>
 
       </section>
