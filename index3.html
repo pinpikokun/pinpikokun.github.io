@@ -11,27 +11,28 @@
 </head>
 
 <body>
-<ons-navigator animation="slide" var="app.navi">
-  <ons-page>
+<ons-navigator id="myNavigator" page="page1.html"></ons-navigator>
+
+<ons-template id="page1.html">
+  <ons-page id="page1">
     <ons-toolbar>
-      <div class="center">Title</div>
+      <div class="center">Page 1</div>
     </ons-toolbar>
 
-    <p style="text-align: center">
-      <ons-button modifier="light" ng-click="app.navi.pushPage('page.html');">Push</ons-button>
-    </p>
+    <p>This is the first page.</p>
+
+    <ons-button id="push-button">Push page</ons-button>
   </ons-page>
-</ons-navigator>
+</ons-template>
 
-<ons-template id="page.html">
-  <ons-page>
+<ons-template id="page2.html">
+  <ons-page id="page2">
     <ons-toolbar>
-      <div class="center">Title</div>
+      <div class="left"><ons-back-button>Back</ons-back-button></div>
+      <div class="center"></div>
     </ons-toolbar>
 
-    <p style="text-align: center">
-      <ons-button modifier="light" ng-click="app.navi.popPage('page.html');">Pop</ons-button>
-    </p>
+    <p>This is the second page.</p>
   </ons-page>
 </ons-template>
 </body>
