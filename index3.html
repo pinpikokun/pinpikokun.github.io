@@ -1,7 +1,6 @@
 <html>
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
     <script src="onsenui.min.js"></script>
     <script src="angular-onsenui.min.js"></script>
     <link rel="stylesheet" href="onsenui.css"/>
@@ -9,24 +8,7 @@
     <link rel="stylesheet" href="my.css"/>
 
     <script>
-        var app = ons.bootstrap('app', ['ngSanitize']);
-
-        app.controller('page1', function ($scope) {
-
-            angular.element(document).ready(function () {
-                document.getElementById('test2').addEventListener("touchstart", function (e) {
-                    return e.stopPropagation();
-                }, false);
-            });
-
-            $scope.test1 = function () {
-                return '<p><b>HyperText Markup Language</b> (<b>HTML</b>) is the standard <a href="/wiki/Markup_language" title="Markup language">markup language</a> for creating <a href="/wiki/Web_page" title="Web page">web pages</a> and <a href="/wiki/Web_application" title="Web application">web applications</a>. With <a href="/wiki/Cascading_Style_Sheets" title="Cascading Style Sheets">Cascading Style Sheets</a> (CSS), and <a href="/wiki/JavaScript" title="JavaScript">JavaScript</a>, it forms a triad of cornerstone technologies for the <a href="/wiki/World_Wide_Web" title="World Wide Web">World Wide Web</a>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> <a href="/wiki/Web_browser" title="Web browser">Web browsers</a> receive HTML documents from a <a href="/wiki/Webserver" class="mw-redirect" title="Webserver">webserver</a> or from local storage and render them into multimedia web pages. HTML describes the structure of a web page <a href="/wiki/Semantic" class="mw-redirect" title="Semantic">semantically</a> and originally included cues for the appearance of the document.</p>'
-            };
-
-            $scope.test2 = function () {
-                return '<p><b>HyperText Markup Language</b> (<b>HTML</b>) is the standard <a href="/wiki/Markup_language" title="Markup language">markup language</a> for creating <a href="/wiki/Web_page" title="Web page">web pages</a> and <a href="/wiki/Web_application" title="Web application">web applications</a>. With <a href="/wiki/Cascading_Style_Sheets" title="Cascading Style Sheets">Cascading Style Sheets</a> (CSS), and <a href="/wiki/JavaScript" title="JavaScript">JavaScript</a>, it forms a triad of cornerstone technologies for the <a href="/wiki/World_Wide_Web" title="World Wide Web">World Wide Web</a>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> <a href="/wiki/Web_browser" title="Web browser">Web browsers</a> receive HTML documents from a <a href="/wiki/Webserver" class="mw-redirect" title="Webserver">webserver</a> or from local storage and render them into multimedia web pages. HTML describes the structure of a web page <a href="/wiki/Semantic" class="mw-redirect" title="Semantic">semantically</a> and originally included cues for the appearance of the document.</p>'
-            };
-        });
+        var app = ons.bootstrap('app', []);
     </script>
 </head>
 
