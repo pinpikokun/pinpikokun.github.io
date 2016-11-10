@@ -29,49 +29,16 @@
 </head>
 
 <body>
-  <ons-navigator var="navi">
+<ons-navigator title="Navigator" var="navi">
+    <ons-button modifier="light" onclick="navi.pushPage('page1.html', { animation : 'slide' } )">
+        Push Page
+    </ons-button>
+</ons-navigator>
+
+<ons-template id="page1.html">
     <ons-page>
-      <ons-toolbar>
-        <div class="left">
-          <ons-back-button>Back</ons-back-button>
-        </div>
-        <div class="center">Navigation</div>
-      </ons-toolbar>
-
-      <section style="padding: 10px">
-        <ons-button onClick="navi.pushPage('page2.html')">
-          Push Page
-        </ons-button>
-        <ons-gesture-detector>
-          ↓push前（検知：OK｜動作：OK）<br>
-          <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
-        </ons-gesture-detector>
-
-      </section>
+a
     </ons-page>
-  </ons-navigator>
-
-
-  <ons-template id="page2.html">
-    <ons-page>
-      <ons-toolbar>
-        <div class="left">
-          <ons-back-button>Back</ons-back-button>
-        </div>
-        <div class="center">Navigation</div>
-      </ons-toolbar>
-
-      <section style="padding: 10px">
-        <ons-button onClick="navi.popPage()">
-          Pop Page<br>
-        </ons-button>
-        <ons-gesture-detector>
-          ↓push後（検知：OK｜動作：NG）<br>
-          <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
-        </ons-gesture-detector>
-
-      </section>
-    </ons-page>
-  </ons-template>
+</ons-template>
 </body>
 </html>
