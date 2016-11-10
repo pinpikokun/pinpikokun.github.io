@@ -33,6 +33,11 @@
                 event.preventDefault();
             });
         });
+        document.addEventListener('destroy', function(event) {
+            $(document).off('transform');
+            $(document).off('release');
+            $(document).off('touchmove');
+        });
     </script>
 </head>
 
