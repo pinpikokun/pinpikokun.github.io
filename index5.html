@@ -1,0 +1,84 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="onsenui.min.js"></script>
+    <script src="angular-onsenui.min.js"></script>
+    <link rel="stylesheet" href="onsenui.css"/>
+    <link rel="stylesheet" href="onsen-css-components.css"/>
+    <link rel="stylesheet" href="my.css"/>
+
+    <script>
+        var app = ons.bootstrap('app', []);
+        document.addEventListener('init', function(event) {
+            if(event.target.id !== 'page2') return;
+            
+            var target = $("img.photo-zoom_jq");
+            var prevScale = 1;
+            var scale = 1;
+            $(document).on('transform', 'img.photo-zoom_jq', function(event) {
+                console.log('transform is detected.');
+                scale = Math.max(0.5, Math.min(prevScale * event.originalEvent.gesture.scale, 3));
+                target.css({transform : 'translate(50px, 200px) scale(' + scale + ',' + scale +')'});
+            });
+            $(document).on('release', 'img.photo-zoom_jq', function(event) {
+                console.log('release is detected.');
+                scale = Math.max(0.5, Math.min(prevScale * event.originalEvent.gesture.scale, 3));
+                console.log('scale:' + scale);
+                target.css({transform : 'translate(50px, 200px) scale(' + scale + ',' + scale +')'});
+                console.log('css end.');
+            });
+            $(document).on('touchmove', 'img.photo-zoom_jq', function(event) {
+                event.preventDefault();
+            });
+        });
+        document.addEventListener('destroy', function(event) {
+            $(document).off('transform release touchmove');
+        });
+    </script>
+</head>
+
+<body>
+<ons-navigator var="navi" page="page.html"></ons-navigator>
+
+<ons-template id="page.html">
+  <ons-page id="page1">
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button>Back</ons-back-button>
+      </div>
+      <div class="center">Navigation</div>
+    </ons-toolbar>
+    <section style="padding: 10px">
+      <ons-button ng-click="navi.pushPage('page2.html')">
+        Push Page
+      </ons-button>
+      <ons-gesture-detector>
+        ↓push前（検知：OK｜動作：OK）<br>
+        <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
+      </ons-gesture-detector>
+    </section>
+  </ons-page>
+</ons-template>
+
+<ons-template id="page2.html">
+  <ons-page id="page2">
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button>Back</ons-back-button>
+      </div>
+      <div class="center">Navigation</div>
+    </ons-toolbar>
+    <section style="padding: 10px">
+      <ons-button ng-click="navi.popPage()">
+        Pop Page<br>
+      </ons-button>
+      <ons-gesture-detector>
+        ↓push後（検知：OK｜動作：NG）<br>
+        <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
+      </ons-gesture-detector>
+    </section>
+  </ons-page>
+</ons-template>
+</body>
+</html>
