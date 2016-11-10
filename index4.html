@@ -11,9 +11,7 @@
     <script>
         var app = ons.bootstrap('app', []);
 
-        app.controller('pageController', function ($window, $scope) {
-            
-            $window.addEventListener('init', function(e) {
+            $(document).on('init', function() {
                 var target = $("img.photo-zoom_jq");
                 var prevScale = 1;
                 var scale = 1;
@@ -33,13 +31,13 @@
                     event.preventDefault();
                 });
             }, false);
-        });
+
 
     </script>
 </head>
 
 <body>
-<ons-navigator var="navi" page="page.html" ng-controller="pageController"></ons-navigator>
+<ons-navigator var="navi" page="page.html"></ons-navigator>
 
 <ons-template id="page.html">
   <ons-page>
