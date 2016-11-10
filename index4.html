@@ -12,11 +12,11 @@
         var app = ons.bootstrap('app', []);
 
         app.controller('pageController', function ($window, $scope) {
-
-            var prevScale = 1;
-            var scale = 1;
+            
             $window.addEventListener('init', function(e) {
-                            var target = $("img.photo-zoom_jq");
+                var target = $("img.photo-zoom_jq");
+                var prevScale = 1;
+                var scale = 1;
                 console.log('init');
                 $(document).on('release', 'img.photo-zoom_jq', function(event) {
                     console.log(target);
