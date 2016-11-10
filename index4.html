@@ -31,7 +31,9 @@
                 event.preventDefault();
             });
         });
-
+        document.addEventListener('destroy', function(event) {
+            $(document).off('transform release touchmove');
+        }
     </script>
 </head>
 
