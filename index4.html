@@ -12,6 +12,7 @@
         var app = ons.bootstrap('app', []);
         document.addEventListener('init', function(event) {
             var target = $("#page2.html img.photo-zoom_jq");
+            console.log(target);
             var prevScale = 1;
             var scale = 1;
             $(document).on('transform', '#page2.html img.photo-zoom_jq', function(event) {
