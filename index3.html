@@ -1,59 +1,76 @@
 <html>
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/1.3.19/js/onsenui.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/1.3.19/css/onsenui.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/1.3.19/css/onsen-css-components.min.css"/>
+  <script src="onsenui.min.js"></script>
+  <link rel="stylesheet" href="onsenui.css"/>
+  <link rel="stylesheet" href="onsen-css-components.css"/>
 
   <script>
-    var app = ons.bootstrap('app', ['ngSanitize']);
+    var target = $("img.photo-zoom_jq");
+    var prevScale = 1;
+    var scale = 1;
 
-    app.controller('page1', function ($scope) {
+    $(document).on('transform', 'img.photo-zoom_jq', function(event) {
+        console.log('transform is detected.');
+        scale = Math.max(0.5, Math.min(prevScale * event.originalEvent.gesture.scale, 3));
+        target.css({transform : 'translate(50px, 200px) scale(' + scale + ',' + scale +')'});
     });
-    
-    app.controller('page2', function ($scope, $window) {
-      $scope.title = "page2";
-      $scope.urlScheme = function(){
-        $window.location.href = 'line://';
-      }
+    $(document).on('release', 'img.photo-zoom_jq', function(event) {
+        console.log('release is detected.');
+        prevScale = scale;
+    });
+    $(document).on('touchmove', 'img.photo-zoom_jq', function(event) {
+        console.log('touchmove is detected.');
+        event.preventDefault();
     });
   </script>
 </head>
 
 <body>
-<ons-navigator title="Navigator" var="myNavigator">
-  <ons-button modifier="light" onclick="myNavigator.pushPage('page1.html', { animation : 'slide' } )">
-    Push Page
-  </ons-button>
-</ons-navigator>
+<ons-navigator var="navi" page="page.html">
+  </ons-navigator>
 
-<ons-template id="page1.html">
-  <ons-page ng-controller="page1" on-device-backbutton="myNavigator.popPage();">
-    <ons-toolbar>
-      <div class="center">page1</div>
-    </ons-toolbar>
-    <ons-button modifier="light" onclick="myNavigator.pushPage('page2.html', { animation : 'slide' } )">
-      Push Page
-    </ons-button>
-  </ons-page>
-</ons-template>
+  <ons-template id="page.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">Navigation</div>
+      </ons-toolbar>
 
-<ons-template id="page2.html">
-  <ons-page ng-controller="page2" on-device-backbutton="myNavigator.popPage();">
-    <ons-toolbar>
-      <div class="center" ng-bind="title"></div>
-    </ons-toolbar>
-    <ons-button modifier="light" onclick="myNavigator.popPage();">
-      Pop Page
-    </ons-button>
-    
-    <ons-button modifier="light" ng-click="urlScheme()">
-      Line Start
-    </ons-button>
-    
-  </ons-page>
-</ons-template>
+      <section style="padding: 10px">
+        <ons-button ng-click="navi.pushPage('page2.html')">
+          Push Page
+        </ons-button>
+        <ons-gesture-detector>
+        ↓push前（検知：OK｜動作：OK）<br>
+        <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
+        </ons-gesture-detector>
+
+      </section>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="page2.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-back-button>Back</ons-back-button>
+        </div>
+        <div class="center">Navigation</div>
+      </ons-toolbar>
+
+      <section style="padding: 10px">
+        <ons-button ng-click="navi.popPage()">
+          Pop Page<br>
+        </ons-button>
+        <ons-gesture-detector>
+        ↓push後（検知：OK｜動作：NG）<br>
+        <img class="photo-zoom_jq" src="http://placekitten.com/g/240/240">
+        </ons-gesture-detector>
+
+      </section>
+    </ons-page>
+  </ons-template>
 </body>
 </html>
