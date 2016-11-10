@@ -11,7 +11,7 @@
     <script>
         var app = ons.bootstrap('app', []);
         document.addEventListener('init', function(event) {
-            var target = $("#page2.html img.photo-zoom_jq");
+            var target = $("#page2 img.photo-zoom_jq");
             console.log(target);
             var prevScale = 1;
             var scale = 1;
@@ -39,7 +39,7 @@
 <ons-navigator var="navi" page="page.html"></ons-navigator>
 
 <ons-template id="page.html">
-  <ons-page>
+  <ons-page id="page1">
     <ons-toolbar>
       <div class="left">
         <ons-back-button>Back</ons-back-button>
@@ -59,7 +59,7 @@
 </ons-template>
 
 <ons-template id="page2.html">
-  <ons-page>
+  <ons-page id="page2">
     <ons-toolbar>
       <div class="left">
         <ons-back-button>Back</ons-back-button>
