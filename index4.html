@@ -11,12 +11,11 @@
     <script>
         var app = ons.bootstrap('app', []);
 
-        app.controller('pageController', function ($scope) {
-            
-            ons.ready(function() {
-                var target = $("img.photo-zoom_jq");
-                var prevScale = 1;
-                var scale = 1;
+        app.controller('pageController', function ($window, $scope) {
+            var target = $("img.photo-zoom_jq");
+            var prevScale = 1;
+            var scale = 1;
+            $window.addEventListener('init', function(e) {
                 $(document).on('release', 'img.photo-zoom_jq', function(event) {
                     console.log(target);
                     console.log('release is detected.');
@@ -26,7 +25,8 @@
                     console.log('css end.');
                     $scope.$apply();
                 });
-            });
+            }, false);
+
                 /*
                 var target = $("img.photo-zoom_jq");
                 var prevScale = 1;
