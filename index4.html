@@ -11,32 +11,36 @@
     <script>
         var app = ons.bootstrap('app', []);
 
-        ons.ready(function() {
-            var target = $("img.photo-zoom_jq");
-            var prevScale = 1;
-            var scale = 1;
+        app.controller('page1', function ($scope) {
+            ons.ready(function() {
+                var target = $("img.photo-zoom_jq");
+                var prevScale = 1;
+                var scale = 1;
 
-            $(document).on('transform', 'img.photo-zoom_jq', function(event) {
-                console.log('transform is detected.');
-                scale = Math.max(0.5, Math.min(prevScale * event.originalEvent.gesture.scale, 3));
-                target.css({transform : 'translate(50px, 200px) scale(' + scale + ',' + scale +')'});
-            });
-            $(document).on('release', 'img.photo-zoom_jq', function(event) {
-                console.log('release is detected.');
-                scale = Math.max(0.5, Math.min(prevScale * event.originalEvent.gesture.scale, 3));
-                console.log('scale:' + scale);
-                target.css({transform : 'translate(50px, 200px) scale(' + scale + ',' + scale +')'});
-                console.log('css end.');
-            });
-            $(document).on('touchmove', 'img.photo-zoom_jq', function(event) {
-                event.preventDefault();
+                $(document).on('transform', 'img.photo-zoom_jq', function(event) {
+                    console.log('transform is detected.');
+                    scale = Math.max(0.5, Math.min(prevScale * event.originalEvent.gesture.scale, 3));
+                    target.css({transform : 'translate(50px, 200px) scale(' + scale + ',' + scale +')'});
+                });
+                $(document).on('release', 'img.photo-zoom_jq', function(event) {
+                    console.log('release is detected.');
+                    scale = Math.max(0.5, Math.min(prevScale * event.originalEvent.gesture.scale, 3));
+                    console.log('scale:' + scale);
+                    target.css({transform : 'translate(50px, 200px) scale(' + scale + ',' + scale +')'});
+                    console.log('css end.');
+                    $scope.$apply();
+                });
+                $(document).on('touchmove', 'img.photo-zoom_jq', function(event) {
+                    event.preventDefault();
+                });
             });
         });
+
     </script>
 </head>
 
 <body>
-<ons-navigator var="navi" page="page.html"></ons-navigator>
+<ons-navigator var="navi" page="page.html" ng-controller="pageController"></ons-navigator>
 
 <ons-template id="page.html">
   <ons-page>
