@@ -1,39 +1,55 @@
 <html>
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
     <script src="onsenui.min.js"></script>
+    <script src="angular-onsenui.min.js"></script>
     <link rel="stylesheet" href="onsenui.css"/>
     <link rel="stylesheet" href="onsen-css-components.css"/>
     <link rel="stylesheet" href="my.css"/>
-  
-  <script>
 
-  </script>
+    <script>
+        var app = ons.bootstrap('app', ['ngSanitize']);
+
+        app.controller('page1', function ($scope) {
+
+            angular.element(document).ready(function () {
+                document.getElementById('test2').addEventListener("touchstart", function (e) {
+                    return e.stopPropagation();
+                }, false);
+            });
+
+            $scope.test1 = function () {
+                return '<p><b>HyperText Markup Language</b> (<b>HTML</b>) is the standard <a href="/wiki/Markup_language" title="Markup language">markup language</a> for creating <a href="/wiki/Web_page" title="Web page">web pages</a> and <a href="/wiki/Web_application" title="Web application">web applications</a>. With <a href="/wiki/Cascading_Style_Sheets" title="Cascading Style Sheets">Cascading Style Sheets</a> (CSS), and <a href="/wiki/JavaScript" title="JavaScript">JavaScript</a>, it forms a triad of cornerstone technologies for the <a href="/wiki/World_Wide_Web" title="World Wide Web">World Wide Web</a>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> <a href="/wiki/Web_browser" title="Web browser">Web browsers</a> receive HTML documents from a <a href="/wiki/Webserver" class="mw-redirect" title="Webserver">webserver</a> or from local storage and render them into multimedia web pages. HTML describes the structure of a web page <a href="/wiki/Semantic" class="mw-redirect" title="Semantic">semantically</a> and originally included cues for the appearance of the document.</p>'
+            };
+
+            $scope.test2 = function () {
+                return '<p><b>HyperText Markup Language</b> (<b>HTML</b>) is the standard <a href="/wiki/Markup_language" title="Markup language">markup language</a> for creating <a href="/wiki/Web_page" title="Web page">web pages</a> and <a href="/wiki/Web_application" title="Web application">web applications</a>. With <a href="/wiki/Cascading_Style_Sheets" title="Cascading Style Sheets">Cascading Style Sheets</a> (CSS), and <a href="/wiki/JavaScript" title="JavaScript">JavaScript</a>, it forms a triad of cornerstone technologies for the <a href="/wiki/World_Wide_Web" title="World Wide Web">World Wide Web</a>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup> <a href="/wiki/Web_browser" title="Web browser">Web browsers</a> receive HTML documents from a <a href="/wiki/Webserver" class="mw-redirect" title="Webserver">webserver</a> or from local storage and render them into multimedia web pages. HTML describes the structure of a web page <a href="/wiki/Semantic" class="mw-redirect" title="Semantic">semantically</a> and originally included cues for the appearance of the document.</p>'
+            };
+        });
+    </script>
 </head>
 
 <body>
-<ons-navigator id="myNavigator" page="page1.html"></ons-navigator>
+<ons-navigator title="Navigator" var="myNavigator">
+    <ons-button modifier="light" onclick="myNavigator.pushPage('page1.html', { animation : 'slide' } )">
+        Push Page
+    </ons-button>
+</ons-navigator>
 
 <ons-template id="page1.html">
-  <ons-page id="page1">
-    <ons-toolbar>
-      <div class="center">Page 1</div>
-    </ons-toolbar>
+    <ons-page ng-controller="page1">
+        <div style="padding: 10px;">
+            <h2>contenteditable can not be edited on iOS</h2>
 
-    <p>This is the first page.</p>
+            <h3 style="color: #dc5236">It can not be edited and no changes</h3>
+            <div id="test1" contenteditable="true" ng-bind-html="test2()" style="border: 1px solid;"></div>
 
-    <ons-button id="push-button">Push page</ons-button>
-  </ons-page>
-</ons-template>
-
-<ons-template id="page2.html">
-  <ons-page id="page2">
-    <ons-toolbar>
-      <div class="left"><ons-back-button>Back</ons-back-button></div>
-      <div class="center"></div>
-    </ons-toolbar>
-
-    <p>This is the second page.</p>
-  </ons-page>
+            <h3 style="color:#5198db">The touchstart stopPropagation Then editable</h3>
+            <div id="test2" contenteditable="true" ng-bind-html="test1()" style="border: 1px solid;"></div>
+        </div>
+    </ons-page>
 </ons-template>
 </body>
 </html>
