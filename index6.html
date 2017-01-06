@@ -14,21 +14,6 @@
   <script>
     ons.bootstrap();
   </script>
-  <script type="text/javascript">
-  window.addEventListener('error', function(error) {
-    var result = document.getElementById('result') || (function() {
-      var result = document.createElement('pre');
-      result.setAttribute('id', 'result');
-      document.getElementsByTagName('body')[0].appendChild(result);
-      return result;
-    })();
-    var message = [error.filename, '@', error.lineno, ': ', error.message].join('');
-
-    result.textContent += '\n' + message;
-
-    return false;
-  });
-  </script>
   </head>
   <body>
     <ons-sliding-menu var="app.menu" main-page="page.html" menu-page="menu.html" max-slide-distance="200px" type="reveal" side="left"> </ons-sliding-menu>
