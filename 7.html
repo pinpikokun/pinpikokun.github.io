@@ -12,20 +12,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.0.3/css/onsen-css-components.min.css">
 
   <script type="text/javascript">
-  window.addEventListener('error', function(error) {
-    alert('error');
-    var result = document.getElementById('result') || (function() {
-      var result = document.createElement('pre');
-      result.setAttribute('id', 'result');
-      document.getElementsByTagName('body')[0].appendChild(result);
-      return result;
-    })();
-    var message = [error.filename, '@', error.lineno, ': ', error.message].join('');
-
-    result.textContent += '\n' + message;
-
-    return false;
-  });
+    window.onerror= function(msg, url, line){
+       alert('('+ line + ')'+ msg);
+    }
     
     ons.bootstrap();
   </script>
