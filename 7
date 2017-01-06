@@ -1,0 +1,56 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.0.3/js/onsenui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.0.3/js/angular-onsenui.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.0.3/css/onsenui.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.0.3/css/onsen-css-components.min.css">
+
+  <script>
+    ons.bootstrap();
+  </script>
+  <script type="text/javascript">
+  window.addEventListener('error', function(error) {
+    var result = document.getElementById('result') || (function() {
+      var result = document.createElement('pre');
+      result.setAttribute('id', 'result');
+      document.getElementsByTagName('body')[0].appendChild(result);
+      return result;
+    })();
+    var message = [error.filename, '@', error.lineno, ': ', error.message].join('');
+
+    result.textContent += '\n' + message;
+
+    return false;
+  });
+  </script>
+  </head>
+  <body>
+    <ons-sliding-menu var="app.menu" main-page="page.html" menu-page="menu.html" max-slide-distance="200px" type="reveal" side="left"> </ons-sliding-menu>
+
+    <ons-template id="page.html">
+        <ons-page>
+            <ons-modal id="modal" var="modal">
+              Modal content
+            </ons-modal>
+            <p style="text-align: center">
+                <ons-button ng-click="app.menu.toggleMenu()">Toggle</ons-button>
+                <ons-button ng-click="modal.show()">modal</ons-button>
+                
+            </p>
+        </ons-page>
+    </ons-template>
+
+    <ons-template id="menu.html">
+        <ons-page> 
+            <!-- menu page's contents --> 
+        </ons-page>
+    </ons-template>
+
+  </body>
+</html>
