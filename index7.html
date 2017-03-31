@@ -6,14 +6,16 @@
 </head>
 <body>
 
-  <div>
-    <input type="checkbox" id="c1">
-    <label for="c1"><span>タグで囲った</span></label>
-  </div>
+<div class="button-bar" style="width:200px;margin:7px 50px;">
+                <div class="button-bar__item">
+                    <input type="radio" name="navi-segment-a" ng-mousedown="resCtrl.tabIndex = 1;" checked>
+                    <div class="button-bar__button">Search Criteria</div>
+                </div>
 
-  <div>
-    <input type="checkbox" id="c2">
-    <label for="c2">タグで囲わない</label>
-  </div>
+                <div class="button-bar__item">
+                    <input type="radio" name="navi-segment-a"  ng-mousedown="resCtrl.tabIndex = 2;">
+                    <div class="button-bar__button">Search Results</div>
+                </div>
+            </div>
 </body>
 </html>
