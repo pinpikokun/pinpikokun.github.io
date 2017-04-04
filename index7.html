@@ -1,36 +1,23 @@
 <html>
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.2.1/js/onsenui.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.2.1/css/onsenui.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.2.1/css/onsen-css-components.min.css"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.2.1/js/onsenui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.2.1/js/angular-onsenui.min.js"></script>
-    <script>
-        var app = ons.bootstrap('app');
-        app.controller('page1', function ($scope) {
-          $scope.hogeList = [{name:'aaa1'},{name:'aaa2'},{name:'aaa3'},{name:'aaa4'},{name:'aaa5'},{name:'aaa6'}]
-        });
-    </script>
 </head>
 <body>
-  
-<ons-navigator var="navi">
-  <ons-button modifier="light" onclick="navi.pushPage('page1.html', { animation : 'slide' } )">
-      Push Page
-  </ons-button>
-</ons-navigator>
-<ons-template id="page1.html">
-  <ons-page ng-controller="page1">
-    <ons-list>
-      <ons-list-item ng-repeat="hoge in hogeList">
-        <ons-row>
-          <ons-col class="list-col">
-            <div>{{hoge.name}}</div>
-          </ons-col>
-        </ons-row>
-      </ons-list-item>
-    </ons-list>
-  </ons-page>
-</ons-template>
+<div class="button-bar" style="width:280px;margin:0 auto;">
+  <div class="button-bar__item">
+    <input type="radio" name="segment-a" checked>
+    <button class="button-bar__button">One</button>
+  </div>
+  <div class="button-bar__item">
+    <input type="radio" name="segment-a">
+    <button class="button-bar__button">Two</button>
+  </div>
+  <div class="button-bar__item">
+    <input type="radio" name="segment-a">
+    <button class="button-bar__button">Three</button>
+  </div>
+</div>
 </body>
 </html>
