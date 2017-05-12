@@ -6,30 +6,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.2.6/js/angular-onsenui.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.2.6/css/onsenui.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.2.6/css/onsen-css-components.min.css"/>
-  <style type="text/css">
-    ons-pull-hook .arrow {
-      transition: all 0.3s ease-in-out;
-      transform: rotate3d(0, 0, 0, 0deg);
-    }
 
-    ons-pull-hook[state="preaction"] .arrow {
-      opacity: 1;
-      transform: rotate3d(0, 0, 1, 180deg);
-    }
-
-    ons-pull-hook[state="action"] .arrow {
-      display: none;
-    }
-
-    ons-pull-hook .loader {
-      display: none;
-      transition: all 0.3s ease-in-out 0.2s;
-    }
-
-    ons-pull-hook[state="action"] .loader {
-      display: inline-block;
-    }
-  </style>
   <script>
     var app = ons.bootstrap('app', ['ngSanitize']);
 
