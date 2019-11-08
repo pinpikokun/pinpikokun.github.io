@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0b6a9b"],{"1db4":function(n,e,a){"use strict";a.r(e);var t=function(){var n=this,e=n.$createElement,a=n._self._c||e;return a("div",[n._v("\n  ４０４\n")])},c=[],u={name:"Page404"},r=u,s=a("2877"),b=Object(s["a"])(r,t,c,!1,null,"72c2a13b",null);e["default"]=b.exports}}]);
